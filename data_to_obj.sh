@@ -6,7 +6,7 @@
     # ... > data/subway_lines.geojson
 
 source activate pymain
-cd ~/Documents/SAVI-780/final/
+cd ~/Documents/SAVI-780-final/
 
 # trim, prep, and export subway data to new .geojsons
 python export_geojson.py

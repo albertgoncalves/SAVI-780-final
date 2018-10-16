@@ -5,6 +5,10 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 
 
+def add_dash(string):
+    return '-{}-'.format(string)
+
+
 def subway_filename(stem):
     return 'data/subway_{}.geojson'.format(stem)
 
@@ -18,10 +22,6 @@ def select_line(lines, stations, line_char):
     my_stations = selector(stations, 'line', line_char)
 
     return my_lines, my_stations
-
-
-def add_dash(string):
-    return '-{}-'.format(string)
 
 
 def prepare_data():
@@ -55,21 +55,25 @@ if __name__ == '__main__':
     lines, stations = prepare_data()
     kwargs = {'column': 'name', 'alpha': 0.25}
 
-    for stop in map(add_dash, list_stops()):
+    fig, axs = plt.subplots(3, 7, figsize=(16, 10), dpi=75)
+
+    for i, stop in enumerate(map(add_dash, list_stops())):
+        ix = i // 7
+        iy = i  % 7
+
         title = stop.replace('-', '')
 
         my_lines, my_stations = select_line(lines, stations, stop)
 
-        fig, ax = plt.subplots(figsize=(5, 6.5))
-        kwargs['ax'] = ax
+        kwargs['ax'] = axs[ix, iy]
 
         my_lines.plot(**kwargs)
         if len(my_stations) > 0:
             my_stations.plot(**kwargs)
 
-        ax.set_title(title)
-        ax.set_aspect('equal')
+        axs[ix, iy].set_title(title)
+        axs[ix, iy].set_aspect('equal')
 
-        plt.tight_layout()
-        plt.savefig('tmp/{}.png'.format(title))
-        plt.close()
+    plt.tight_layout()
+    plt.savefig('tmp/sep_lines.png'.format(title))
+    plt.close()

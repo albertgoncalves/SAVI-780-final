@@ -36,7 +36,7 @@ var createText = (containerId) => (x, y) => (text, color, size) => (id) => {
                          ];
 
     createSvg(containerId)("text")(textAttributes, text);
-}
+};
 
 var changeColor = (color) => (id) => () => {
     document.getElementById(id).style.color = color;
@@ -48,14 +48,14 @@ var createPair = (containerId) => (r, circleColor) =>
     createText(containerId)(x, y + 2)(text, textColor, textSize)(id + "text");
 };
 
-var x = 0
+var x = 0;
 var generateCircle = (containerId, r, circleColor, text, textSize) => () => {
     var textColor = ["N", "Q", "R", "W"].includes(text) ? "hsl(0, 0%,   0%)"
-                                                        : "hsl(0, 0%, 100%)"
-    var y = 40
+                                                        : "hsl(0, 0%, 100%)";
+    var y = 40;
     createPair(containerId)(r, circleColor)
               (text, textColor, textSize)(x, y)("");
-    x += 40
+    x += 40;
 };
 
 //

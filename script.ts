@@ -164,8 +164,14 @@ const mapInput = (mapVar, linesInput, stationsInput, layerInput, keyInput) => {
 
     const lineColor = arrayToHsl(colorMap[keyInput].map(smudge));
 
-    _                 = dataToMap(linesOutput.take, styleLine(lineColor), false);
-    const newStations = dataToMap(stationsOutput  , markerToCircle()    , true);
+    _                 = dataToMap( linesOutput.take
+                                 , styleLine(lineColor)
+                                 , false
+                                 );
+    const newStations = dataToMap( stationsOutput
+                                 , markerToCircle()
+                                 , true
+                                 );
 
     //
     // check if the machine is working correctly...
