@@ -1,5 +1,5 @@
-*.geojson
-*.txt
-tmp
 __pycache__
 sketch
+tmp
+*.geojson
+*.txt
