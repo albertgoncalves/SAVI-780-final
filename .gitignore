@@ -1,14 +1,5 @@
-class*
-!class7
-!class10
-!class11
-!class12
-example2
-assets
-hw*
-!hw4
 *.geojson
 *.txt
 tmp
 __pycache__
-help
+sketch
