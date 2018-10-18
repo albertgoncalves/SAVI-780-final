@@ -34,3 +34,19 @@ svg {
     /*padding-top: 5px;
     padding-left: 15px;*/
 }
+
+#info a:visited {
+    color: #de2d26;
+}
+
+#info a:link {
+    color: #fdbb84;
+}
+
+#info a:hover {
+    color: #a1d99b;
+}
+
+#info a:active {
+    color: #9ebcda;
+}
